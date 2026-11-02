@@ -15,6 +15,7 @@ We also ask to respect the pep8 convention: https://pep8.org.
 This will be enforced with `ruff`. You can check that there are no errors
 by calling `ruff check` at the root of the repo.
 """
+
 import numpy as np
 
 
@@ -39,8 +40,8 @@ def max_index(X):
     """
     i = 0
     j = 0
-    
-    #Value Error verif checks
+
+    # Value Error verif checks
     if not isinstance(X, np.ndarray):
         raise ValueError("[Alert] Input must be a numpy array.")
     if np.ndim(X) != 2:
@@ -48,11 +49,9 @@ def max_index(X):
     if X.size == 0:
         raise ValueError("[Alert] Input array must not be empty.")
 
-
     flat_index = np.argmax(X)
     i, j = np.unravel_index(flat_index, X.shape)
     return int(i), int(j)
-    
 
 
 def wallis_product(n_terms):
@@ -74,12 +73,9 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    
+
     if n_terms < 0:
         raise ValueError("[Alert] n_terms must be a non-negative integer.")
-    
-    if n_terms < 0:
-        raise ValueError("n_terms must be a non-negative integer.")
 
     if n_terms == 0:
         return 2.0
